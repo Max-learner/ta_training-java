@@ -1,13 +1,7 @@
 import models.MilitaryPlainTypes;
-<<<<<<< HEAD
 import planes.MilitaryPlane;
 import planes.PassengerPlane;
 import planes.Plane;
-=======
-import Planes.MilitaryPlane;
-import Planes.PassengerPlane;
-import Planes.Plane;
->>>>>>> 2bedb236a3ff0ef6451ce0aac69e57795887d843
 
 import java.util.Arrays;
 import java.util.List;

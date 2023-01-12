@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 package planes;
-=======
-package Planes;
->>>>>>> 2bedb236a3ff0ef6451ce0aac69e57795887d843
 
 import models.MilitaryPlainTypes;
 
