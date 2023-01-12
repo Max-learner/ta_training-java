@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import planes.ExperimentalPlane;
 import models.MilitaryPlainTypes;
 import planes.MilitaryPlane;
@@ -8,6 +9,16 @@ import java.util.*;
 
 import static java.util.Comparator.comparingInt;
 
+=======
+import Planes.experimentalPlane;
+import models.MilitaryPlainTypes;
+import Planes.MilitaryPlane;
+import Planes.PassengerPlane;
+import Planes.Plane;
+
+import java.util.*;
+
+>>>>>>> 2bedb236a3ff0ef6451ce0aac69e57795887d843
 // version: 1.1
 // made by Vitali Shulha
 // 4-Jan-2019
@@ -20,8 +31,14 @@ public class Airport {
     }
 
     public List<PassengerPlane> getPassengerPlanes() {
+<<<<<<< HEAD
         List<PassengerPlane> passengerPlanes = new ArrayList<>();
         for (Plane plane : planesInAirport) {
+=======
+        List<? extends Plane> planesList = this.planesInAirport;
+        List<PassengerPlane> passengerPlanes = new ArrayList<>();
+        for (Plane plane : planesList) {
+>>>>>>> 2bedb236a3ff0ef6451ce0aac69e57795887d843
             if (plane instanceof PassengerPlane) {
                 passengerPlanes.add((PassengerPlane) plane);
             }
@@ -29,11 +46,19 @@ public class Airport {
         return passengerPlanes;
     }
 
+<<<<<<< HEAD
     public List<ExperimentalPlane> getExperimentalPlanes() {
         List<ExperimentalPlane> experimentalPlanes = new ArrayList<>();
         for (Plane plane : planesInAirport) {
             if (plane instanceof ExperimentalPlane) {
                 experimentalPlanes.add((ExperimentalPlane) plane);
+=======
+    public List<experimentalPlane> getExperimentalPlanes() {
+        List<experimentalPlane> experimentalPlanes = new ArrayList<>();
+        for (Plane plane : planesInAirport) {
+            if (plane instanceof experimentalPlane) {
+                experimentalPlanes.add((experimentalPlane) plane);
+>>>>>>> 2bedb236a3ff0ef6451ce0aac69e57795887d843
             }
         }
         return experimentalPlanes;
@@ -94,17 +119,41 @@ public class Airport {
     }
 
     public Airport sortByMaxDistance() {
+<<<<<<< HEAD
         planesInAirport.sort(comparingInt(Plane::getMaxFlightDistance));
+=======
+        Collections.sort(planesInAirport, new Comparator<Plane>() {
+            public int compare(Plane planeA, Plane planeB) {
+                return planeA.getMaxFlightDistance() - planeB.getMaxFlightDistance();
+            }
+        });
+>>>>>>> 2bedb236a3ff0ef6451ce0aac69e57795887d843
         return this;
     }
 
     public Airport sortByMaxSpeed() {
+<<<<<<< HEAD
         planesInAirport.sort(comparingInt(Plane::getMaxSpeed));
+=======
+        Collections.sort(planesInAirport, new Comparator<Plane>() {
+            public int compare(Plane planeA, Plane planeB) {
+                return planeA.getMaxSpeed() - planeB.getMaxSpeed();
+            }
+        });
+>>>>>>> 2bedb236a3ff0ef6451ce0aac69e57795887d843
         return this;
     }
 
     public Airport sortByMaxLoadCapacity() {
+<<<<<<< HEAD
         planesInAirport.sort(comparingInt(Plane::getMaxLoadCapacity));
+=======
+        Collections.sort(planesInAirport, new Comparator<Plane>() {
+            public int compare(Plane planeA, Plane planeB) {
+                return planeA.getMaxLoadCapacity() - planeB.getMaxLoadCapacity();
+            }
+        });
+>>>>>>> 2bedb236a3ff0ef6451ce0aac69e57795887d843
         return this;
     }
 
