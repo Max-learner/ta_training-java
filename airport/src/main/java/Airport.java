@@ -1,10 +1,12 @@
-import Planes.experimentalPlane;
+import planes.ExperimentalPlane;
 import models.MilitaryPlainTypes;
-import Planes.MilitaryPlane;
-import Planes.PassengerPlane;
-import Planes.Plane;
+import planes.MilitaryPlane;
+import planes.PassengerPlane;
+import planes.Plane;
 
 import java.util.*;
+
+import static java.util.Comparator.comparingInt;
 
 // version: 1.1
 // made by Vitali Shulha
@@ -18,9 +20,8 @@ public class Airport {
     }
 
     public List<PassengerPlane> getPassengerPlanes() {
-        List<? extends Plane> planesList = this.planesInAirport;
         List<PassengerPlane> passengerPlanes = new ArrayList<>();
-        for (Plane plane : planesList) {
+        for (Plane plane : planesInAirport) {
             if (plane instanceof PassengerPlane) {
                 passengerPlanes.add((PassengerPlane) plane);
             }
@@ -28,11 +29,11 @@ public class Airport {
         return passengerPlanes;
     }
 
-    public List<experimentalPlane> getExperimentalPlanes() {
-        List<experimentalPlane> experimentalPlanes = new ArrayList<>();
+    public List<ExperimentalPlane> getExperimentalPlanes() {
+        List<ExperimentalPlane> experimentalPlanes = new ArrayList<>();
         for (Plane plane : planesInAirport) {
-            if (plane instanceof experimentalPlane) {
-                experimentalPlanes.add((experimentalPlane) plane);
+            if (plane instanceof ExperimentalPlane) {
+                experimentalPlanes.add((ExperimentalPlane) plane);
             }
         }
         return experimentalPlanes;
@@ -93,29 +94,17 @@ public class Airport {
     }
 
     public Airport sortByMaxDistance() {
-        Collections.sort(planesInAirport, new Comparator<Plane>() {
-            public int compare(Plane planeA, Plane planeB) {
-                return planeA.getMaxFlightDistance() - planeB.getMaxFlightDistance();
-            }
-        });
+        planesInAirport.sort(comparingInt(Plane::getMaxFlightDistance));
         return this;
     }
 
     public Airport sortByMaxSpeed() {
-        Collections.sort(planesInAirport, new Comparator<Plane>() {
-            public int compare(Plane planeA, Plane planeB) {
-                return planeA.getMaxSpeed() - planeB.getMaxSpeed();
-            }
-        });
+        planesInAirport.sort(comparingInt(Plane::getMaxSpeed));
         return this;
     }
 
     public Airport sortByMaxLoadCapacity() {
-        Collections.sort(planesInAirport, new Comparator<Plane>() {
-            public int compare(Plane planeA, Plane planeB) {
-                return planeA.getMaxLoadCapacity() - planeB.getMaxLoadCapacity();
-            }
-        });
+        planesInAirport.sort(comparingInt(Plane::getMaxLoadCapacity));
         return this;
     }
 
